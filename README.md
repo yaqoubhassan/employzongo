@@ -2,7 +2,7 @@
 
 Emplozongo project running on Laravel version 8.x
 
-## Project setup
+## Project Setup
 
 1. Clone the project from [github](https://github.com/yaqoubhassan/employzongo.git) using the **HTTPS** option
 2. Configure your `.env` file 
@@ -10,3 +10,7 @@ Emplozongo project running on Laravel version 8.x
 4. Run `composer require laravel/ui`
 5. Run `php artisan ui vue --auth`
 6. Run migrations and seeders `php artisan migrate --seed`
+
+
+## Third Party Packages
+1. [AdminLte](https://github.com/ColorlibHQ/AdminLTE/releases) `npm install admin-lte@3.1.0 --save`
