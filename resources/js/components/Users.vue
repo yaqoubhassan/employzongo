@@ -48,18 +48,33 @@
         </div>
             <!-- Modal -->
         <div class="modal fade" id="addNew" tabindex="-1" aria-labelledby="addNewLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addNewLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="addNewLabel">Add New User</h5>
+                        <!-- <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a> -->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="close"></button> -->
+                        <button type="button" class="close" aria-label="Close"  data-dismiss="modal">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                      <div class="form-group">
+                        <input v-model="form.name" type="text" name="name" placeholder="Enter Name" class="form-control">
+                        <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
+                      </div>
+                      <div class="form-group">
+                        <input v-model="form.name" type="email" name="email" placeholder="Enter Email" class="form-control">
+                        <div v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                      </div>
+                      <div class="form-group">
+                        <input v-model="form.name" type="password" name="password" placeholder="Enter Password" class="form-control">
+                        <div v-if="form.errors.has('password')" v-html="form.errors.get('password')" />
+                      </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create</button>
                     </div>
                 </div>
             </div>
@@ -72,8 +87,15 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+      data: () => ({
+        form: new Form({
+          name: '',
+          email: '',
+          password: ''
+        })
+      }),
+      mounted() {
+          console.log('Component mounted.')
+      }
+  }
 </script>

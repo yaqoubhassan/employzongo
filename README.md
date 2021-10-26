@@ -15,3 +15,6 @@ Emplozongo project running on Laravel version 8.x
 
 ## Third Party Packages
 1. [AdminLte](https://github.com/ColorlibHQ/AdminLTE/releases) `npm install admin-lte@3.1.0 --save`
+2. [VueRouter](https://router.vuejs.org/installation.html)
+3. [FontAwesome](https://fontawesome.com/v5.15/how-to-use/on-the-web/referencing-icons/basic-use)
+4. [vForm](https://github.com/cretueusebiu/vform)
