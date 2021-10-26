@@ -59,18 +59,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                      <div class="form-group">
-                        <input v-model="form.name" type="text" name="name" placeholder="Enter Name" class="form-control">
-                        <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
-                      </div>
-                      <div class="form-group">
-                        <input v-model="form.name" type="email" name="email" placeholder="Enter Email" class="form-control">
-                        <div v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
-                      </div>
-                      <div class="form-group">
-                        <input v-model="form.name" type="password" name="password" placeholder="Enter Password" class="form-control">
-                        <div v-if="form.errors.has('password')" v-html="form.errors.get('password')" />
-                      </div>
+                      
+                        <div class="form-group">
+                          <input v-model="form.name" type="text" name="name" placeholder="Enter Name" class="form-control">
+                          <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
+                        </div>
+                        <div class="form-group">
+                          <input v-model="form.email" type="email" name="email" placeholder="Enter Email" class="form-control">
+                          <div v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                        </div>
+                        <div class="form-group">
+                          <input v-model="form.password" type="password" name="password" placeholder="Enter Password" class="form-control">
+                          <div v-if="form.errors.has('password')" v-html="form.errors.get('password')" />
+                        </div>
+                      
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -89,6 +91,8 @@
     export default {
       data: () => ({
         form: new Form({
+          suggestions: [],
+          showSuggestions: false,
           name: '',
           email: '',
           password: ''
