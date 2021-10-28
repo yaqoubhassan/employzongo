@@ -20,3 +20,4 @@ Emplozongo project running on Laravel version 8.x
 4. [vForm](https://github.com/cretueusebiu/vform)
 5. [MomentJS](https://momentjs.com)
 6. [VueProgressBar](http://hilongjw.github.io/vue-progressbar/index.html)
+7. [SweetAlert](https://sweetalert2.github.io/#download)
