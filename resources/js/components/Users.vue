@@ -19,15 +19,17 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Phone Number</th>
+                      <th>Registration Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="user in users" :key="user.id">
                       <td>{{user.id}}</td>
-                      <td>{{user.name}}</td>
+                      <td>{{user.name | upText}}</td>
                       <td>{{user.email}}</td>
                       <td><span class="tag tag-success">{{user.phoneNumber ? user.phoneNumber : 'N/A'}} </span></td>
+                      <td>{{user.created_at | formatDate}}</td>
                       <td>
                           <a href="#">
                               <i class="fa fa-edit blue"></i>
