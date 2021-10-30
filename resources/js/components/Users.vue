@@ -65,19 +65,19 @@
                         
                           <div class="form-group">
                             <input v-model="form.name" type="text" name="name" placeholder="Enter Name" class="form-control">
-                            <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
+                            <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" style="color:red"/>
                           </div>
                           <div class="form-group">
                             <input v-model="form.email" type="email" name="email" placeholder="Enter Email" class="form-control">
-                            <div v-if="form.errors.has('email')" v-html="form.errors.get('email')" />
+                            <div v-if="form.errors.has('email')" v-html="form.errors.get('email')" style="color:red"/>
                           </div>
                           <div class="form-group">
                             <input v-model="form.phoneNumber" type="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" class="form-control">
-                            <div v-if="form.errors.has('phoneNumber')" v-html="form.errors.get('phoneNumber')" />
+                            <div v-if="form.errors.has('phoneNumber')" v-html="form.errors.get('phoneNumber')" style="color:red"/>
                           </div>
                           <div class="form-group">
                             <input v-model="form.password" type="password" name="password" placeholder="Enter Password" class="form-control">
-                            <div v-if="form.errors.has('password')" v-html="form.errors.get('password')" />
+                            <div v-if="form.errors.has('password')" v-html="form.errors.get('password')" style="color:red"/>
                           </div>
                         
                       </div>
@@ -114,6 +114,7 @@
         createUser() {
           this.$Progress.start();
           this.form.post('/api/users');
+          Fire.$emit('afterCreated');
 
           $('#addNew').modal('hide')
 
@@ -127,7 +128,10 @@
       },
       created() {
           this.loadUsers();
-          setInterval(() => this.loadUsers(), 3000);
+          Fire.$on('afterCreated', () => {
+            this.loadUsers();
+          });
+          // setInterval(() => this.loadUsers(), 3000);
       }
   }
 </script>

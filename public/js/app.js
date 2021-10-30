@@ -2273,6 +2273,7 @@ __webpack_require__.r(__webpack_exports__);
     createUser: function createUser() {
       this.$Progress.start();
       this.form.post('/api/users');
+      Fire.$emit('afterCreated');
       $('#addNew').modal('hide');
       Toast.fire({
         icon: 'success',
@@ -2285,9 +2286,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     this.loadUsers();
-    setInterval(function () {
-      return _this2.loadUsers();
-    }, 3000);
+    Fire.$on('afterCreated', function () {
+      _this2.loadUsers();
+    }); // setInterval(() => this.loadUsers(), 3000);
   }
 });
 
@@ -2368,6 +2369,7 @@ Vue.filter('upText', function (text) {
 Vue.filter('formatDate', function (date) {
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format('MMMM Do YYYY');
 });
+window.Fire = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -62895,6 +62897,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.form.errors.has("name")
                       ? _c("div", {
+                          staticStyle: { color: "red" },
                           domProps: {
                             innerHTML: _vm._s(_vm.form.errors.get("name"))
                           }
@@ -62931,6 +62934,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.form.errors.has("email")
                       ? _c("div", {
+                          staticStyle: { color: "red" },
                           domProps: {
                             innerHTML: _vm._s(_vm.form.errors.get("email"))
                           }
@@ -62967,6 +62971,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.form.errors.has("phoneNumber")
                       ? _c("div", {
+                          staticStyle: { color: "red" },
                           domProps: {
                             innerHTML: _vm._s(
                               _vm.form.errors.get("phoneNumber")
@@ -63005,6 +63010,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.form.errors.has("password")
                       ? _c("div", {
+                          staticStyle: { color: "red" },
                           domProps: {
                             innerHTML: _vm._s(_vm.form.errors.get("password"))
                           }
